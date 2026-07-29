@@ -1,0 +1,27 @@
+version: 2
+updates:
+  # Dépendances NPM (monorepo pnpm)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 10
+    groups:
+      security:
+        applies-to: security-updates
+        patterns: ["*"]
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  # Dépendances Gradle (Android)
+  - package-ecosystem: "gradle"
+    directory: "/packages/android"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    groups:
+      android-deps:
+        patterns: ["androidx.*", "com.google.*"]

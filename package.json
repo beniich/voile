@@ -1,0 +1,14 @@
+{
+  "name": "voile-monorepo",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter @voile/web dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "test:core": "pnpm --filter @voile/core test",
+    "gen:types": "pnpm --filter @voile/core gen:types"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

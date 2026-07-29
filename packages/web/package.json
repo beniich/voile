@@ -1,0 +1,39 @@
+{
+  "name": "voile-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:sentry": "tsc && vite build && sentry-cli uploadsourcemaps -o voile-web -p javascript-react .",
+    "preview": "vite preview --port 4173",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@sentry/react": "^8.30.0",
+    "@sentry/vite-plugin": "^2.22.0",
+    "@stripe/react-stripe-js": "^6.8.0",
+    "@stripe/stripe-js": "^9.12.1",
+    "@supabase/supabase-js": "^2.45.0",
+    "@voile/core": "workspace:*",
+    "i18next": "^26.3.6",
+    "i18next-browser-languagedetector": "^8.2.1",
+    "lucide-react": "^0.439.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^17.0.11"
+  },
+  "devDependencies": {
+    "@sentry/cli": "^2.36.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "sharp": "^0.35.3",
+    "typescript": "^5.5.0",
+    "vite": "^5.4.0",
+    "vite-plugin-pwa": "^0.20.0",
+    "vitest": "^2.0.0"
+  }
+}

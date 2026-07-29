@@ -1,0 +1,27 @@
+{
+  "name": "@voile/core",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    "./tokens": "./src/tokens/index.ts",
+    "./servers": "./src/servers/index.ts",
+    "./trust-score": "./src/trust-score/index.ts",
+    "./types": "./src/types/index.ts",
+    "./supabase": "./src/supabase/client.ts",
+    "./i18n": "./src/i18n/index.ts",
+    "./warp": "./src/warp/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "gen:types": "echo 'Set SUPABASE_PROJECT_ID and run: supabase gen types typescript --project-id $SUPABASE_PROJECT_ID > src/supabase/types.ts'"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
+  }
+}

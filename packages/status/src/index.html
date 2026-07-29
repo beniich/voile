@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Status — Voile VPN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0A0F1C;
+      --surface: #121A2B;
+      --surface-elevated: #1A2438;
+      --border: #1B2439;
+      --text-primary: #E8ECF4;
+      --text-secondary: #A8B2C6;
+      --text-muted: #8A95AD;
+      --secured: #26D9C4;
+      --secured-dim: rgba(38, 217, 196, 0.12);
+      --connecting: #F5A623;
+      --danger: #F0554A;
+    }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Space Grotesk', sans-serif;
+      min-height: 100vh; -webkit-font-smoothing: antialiased;
+    }
+    header {
+      display: flex; align-items: center; gap: 10px;
+      padding: 20px 24px; border-bottom: 1px solid var(--border);
+    }
+    .logo-icon { width: 28px; height: 28px; background: var(--secured-dim); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+    .logo-text { font-size: 16px; font-weight: 600; color: var(--text-primary); }
+    .logo-sep { width: 1px; height: 16px; background: var(--border); margin: 0 6px; }
+    .logo-status { font-size: 13px; color: var(--text-muted); }
+    main { max-width: 700px; margin: 0 auto; padding: 48px 24px; }
+    .overall { display: flex; align-items: center; gap: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 20px 24px; margin-bottom: 36px; }
+    .overall-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--secured); box-shadow: 0 0 12px var(--secured); flex-shrink: 0; }
+    .overall-label { font-size: 17px; font-weight: 600; color: var(--secured); }
+    .overall-sub { font-size: 12.5px; color: var(--text-muted); margin-top: 2px; font-family: 'JetBrains Mono', monospace; }
+    .section-title { font-size: 12px; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-muted); font-weight: 500; margin-bottom: 12px; }
+    .services { display: flex; flex-direction: column; gap: 2px; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 36px; }
+    .service { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--surface); transition: background 0.2s; }
+    .service:not(:last-child) { border-bottom: 1px solid var(--border); }
+    .service:hover { background: var(--surface-elevated); }
+    .service-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .dot-up { background: var(--secured); box-shadow: 0 0 8px var(--secured); }
+    .dot-degraded { background: var(--connecting); }
+    .dot-down { background: var(--danger); }
+    .service-name { flex: 1; font-size: 14px; color: var(--text-primary); font-weight: 500; }
+    .service-status { font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+    .service-latency { font-size: 12px; color: var(--text-secondary); font-family: 'JetBrains Mono', monospace; margin-left: 12px; min-width: 50px; text-align: right; }
+    .history-title { font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 16px; }
+    .uptime-bar { display: flex; gap: 2px; margin-bottom: 4px; }
+    .uptime-day { flex: 1; height: 28px; border-radius: 3px; background: var(--secured); opacity: 0.9; cursor: pointer; transition: opacity 0.15s; }
+    .uptime-day:hover { opacity: 1; }
+    .uptime-day.incident { background: var(--danger); opacity: 0.7; }
+    .uptime-meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+    .refresh { font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-top: 36px; text-align: center; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .overall-dot { animation: pulse 2s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-icon">🛡️</div>
+    <span class="logo-text">Voile VPN</span>
+    <div class="logo-sep"></div>
+    <span class="logo-status">Status</span>
+  </header>
+  <main>
+    <div class="overall" id="overall">
+      <div class="overall-dot"></div>
+      <div>
+        <div class="overall-label" id="overall-label">Chargement…</div>
+        <div class="overall-sub" id="overall-sub">Vérification en cours…</div>
+      </div>
+    </div>
+
+    <div class="section-title">Services</div>
+    <div class="services" id="services-list">
+      <div class="service"><div class="service-dot dot-up"></div><span class="service-name">PWA (voile.ricecloud.com)</span><span class="service-status">—</span><span class="service-latency">—</span></div>
+      <div class="service"><div class="service-dot dot-up"></div><span class="service-name">Cloudflare WARP</span><span class="service-status">—</span><span class="service-latency">—</span></div>
+      <div class="service"><div class="service-dot dot-up"></div><span class="service-name">DNS 1.1.1.1</span><span class="service-status">—</span><span class="service-latency">—</span></div>
+      <div class="service"><div class="service-dot dot-up"></div><span class="service-name">API Supabase</span><span class="service-status">—</span><span class="service-latency">—</span></div>
+    </div>
+
+    <div class="history-title">Uptime — 30 derniers jours</div>
+    <div class="uptime-bar" id="uptime-bar"></div>
+    <div class="uptime-meta">
+      <span>30 jours</span>
+      <span id="uptime-pct">— uptime</span>
+      <span>Aujourd'hui</span>
+    </div>
+    <div class="refresh" id="refresh-info"></div>
+  </main>
+
+  <script type="module">
+    const CHECKS = [
+      { name: "PWA (voile.ricecloud.com)", url: "https://voile.ricecloud.com", el: 0 },
+      { name: "Cloudflare WARP", url: "https://1.1.1.1/cdn-cgi/trace", el: 1 },
+      { name: "DNS 1.1.1.1", url: "https://1.1.1.1/cdn-cgi/trace", el: 2 },
+      { name: "API Supabase", url: "https://status.supabase.com/api/v2/status.json", el: 3 },
+    ];
+
+    const dots = document.querySelectorAll(".service-dot");
+    const statuses = document.querySelectorAll(".service-status");
+    const latencies = document.querySelectorAll(".service-latency");
+
+    async function checkService(url) {
+      const start = Date.now();
+      try {
+        const res = await fetch(url, { method: "GET", mode: "no-cors", cache: "no-cache" });
+        const latency = Date.now() - start;
+        return { up: true, latency };
+      } catch {
+        return { up: false, latency: null };
+      }
+    }
+
+    async function runChecks() {
+      const results = await Promise.all(CHECKS.map(c => checkService(c.url)));
+      let allUp = true;
+
+      results.forEach((r, i) => {
+        const dot = dots[i];
+        const st = statuses[i];
+        const lat = latencies[i];
+        if (r.up) {
+          dot.className = "service-dot dot-up";
+          st.textContent = "Opérationnel";
+          st.style.color = "var(--secured)";
+          lat.textContent = r.latency ? `${r.latency} ms` : "—";
+        } else {
+          allUp = false;
+          dot.className = "service-dot dot-down";
+          st.textContent = "Indisponible";
+          st.style.color = "var(--danger)";
+          lat.textContent = "—";
+        }
+      });
+
+      const label = document.getElementById("overall-label");
+      const sub = document.getElementById("overall-sub");
+      const overallDot = document.querySelector(".overall-dot");
+      const now = new Date().toLocaleTimeString("fr-FR");
+
+      if (allUp) {
+        label.textContent = "Tous les systèmes opérationnels";
+        label.style.color = "var(--secured)";
+        overallDot.style.background = "var(--secured)";
+        overallDot.style.boxShadow = "0 0 12px var(--secured)";
+      } else {
+        label.textContent = "Incident en cours";
+        label.style.color = "var(--danger)";
+        overallDot.style.background = "var(--danger)";
+        overallDot.style.boxShadow = "0 0 12px var(--danger)";
+      }
+      sub.textContent = `Dernière vérification à ${now}`;
+    }
+
+    // Uptime bar (simulé en attendant un vrai historique)
+    function buildUptimeBar() {
+      const bar = document.getElementById("uptime-bar");
+      const incidents = [7, 23]; // Jours qui ont eu un incident
+      for (let i = 30; i >= 0; i--) {
+        const day = document.createElement("div");
+        day.className = incidents.includes(i) ? "uptime-day incident" : "uptime-day";
+        day.title = incidents.includes(i) ? `Il y a ${i} jours : incident détecté` : `Il y a ${i} jours : aucun incident`;
+        bar.appendChild(day);
+      }
+      const upDays = 31 - incidents.length;
+      document.getElementById("uptime-pct").textContent = `${((upDays / 31) * 100).toFixed(1)}% uptime`;
+    }
+
+    function updateRefresh() {
+      document.getElementById("refresh-info").textContent =
+        `Rafraîchissement automatique toutes les 60 secondes · ${new Date().toLocaleDateString("fr-FR")}`;
+    }
+
+    buildUptimeBar();
+    runChecks();
+    updateRefresh();
+    setInterval(() => { runChecks(); updateRefresh(); }, 60_000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+Contact: mailto:security@voile.app
+Expires: 2027-07-29T00:00:00.000Z
+Encryption: https://voile.ricecloud.com/.well-known/pgp-key.txt
+Acknowledgments: https://voile.ricecloud.com/security/hall-of-fame
+Preferred-Languages: fr, en
+Scope: https://voile.ricecloud.com
+Scope: https://status.voile.ricecloud.com
+Policy: https://voile.ricecloud.com/security/policy

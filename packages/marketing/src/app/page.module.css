@@ -1,0 +1,118 @@
+.wrapper { display: flex; flex-direction: column; min-height: 100vh; }
+
+/* Nav */
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(10,15,28,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.navInner { max-width: 1100px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; gap: 32px; }
+.logo { display: flex; align-items: center; gap: 8px; }
+.logoText { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: var(--text-primary); }
+.navLinks { display: flex; gap: 28px; flex: 1; }
+.navLinks a { font-size: 14px; color: var(--text-secondary); transition: color 0.2s; }
+.navLinks a:hover { color: var(--text-primary); }
+.ctaSmall {
+  padding: 8px 18px; border-radius: 8px;
+  background: var(--secured-dim); border: 1px solid var(--secured);
+  color: var(--secured); font-size: 13px; font-weight: 500;
+  transition: background 0.2s;
+}
+.ctaSmall:hover { background: rgba(38,217,196,0.2); }
+
+/* Hero */
+.hero { position: relative; padding: 100px 24px 80px; text-align: center; overflow: hidden; }
+.sonarRings { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+.ring {
+  position: absolute; width: 600px; height: 600px;
+  border-radius: 50%; border: 1px solid rgba(38, 217, 196, 0.12);
+  top: -300px; left: -300px;
+  animation: sonar 4s ease-out infinite;
+}
+.heroContent { position: relative; max-width: 720px; margin: 0 auto; animation: fadeUp 0.8s ease both; }
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px; border-radius: 999px;
+  background: var(--secured-dim); border: 1px solid var(--secured);
+  font-size: 12px; color: var(--secured); font-weight: 500; margin-bottom: 24px;
+}
+.heroTitle { font-family: 'Space Grotesk', sans-serif; font-size: clamp(38px, 6vw, 68px); font-weight: 700; line-height: 1.1; color: var(--text-primary); margin-bottom: 20px; }
+.heroAccent { color: var(--secured); }
+.heroSub { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 560px; margin: 0 auto 36px; }
+.heroCtas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+.ctaPrimary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 12px;
+  background: var(--secured); color: var(--bg);
+  font-size: 15px; font-weight: 600; border: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.ctaPrimary:hover { opacity: 0.88; transform: translateY(-2px); }
+.ctaSecondary {
+  display: inline-flex; align-items: center;
+  padding: 14px 28px; border-radius: 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text-secondary); font-size: 15px; font-weight: 500;
+  transition: border-color 0.2s, color 0.2s;
+}
+.ctaSecondary:hover { border-color: var(--secured); color: var(--text-primary); }
+.ctaOutline {
+  display: block; text-align: center;
+  padding: 12px 20px; border-radius: 10px;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text-secondary); font-size: 14px; font-weight: 500;
+  transition: border-color 0.2s;
+}
+.ctaOutline:hover { border-color: var(--secured); color: var(--text-primary); }
+.heroMeta { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; font-size: 12.5px; color: var(--text-muted); }
+.heroMeta span { display: flex; align-items: center; gap: 5px; }
+
+/* Section */
+.section { max-width: 1100px; margin: 0 auto; padding: 80px 24px; }
+.sectionTitle { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; text-align: center; }
+.sectionSub { font-size: 15px; color: var(--text-secondary); text-align: center; margin-bottom: 56px; }
+
+/* Features */
+.featuresGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.featureCard {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.featureCard:hover { border-color: var(--secured); transform: translateY(-4px); }
+.featureIcon { width: 42px; height: 42px; border-radius: 12px; background: var(--secured-dim); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.featureTitle { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; }
+.featureDesc { font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+
+/* Pricing */
+.pricingGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 400px)); gap: 20px; justify-content: center; }
+.planCard {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+  padding: 28px; display: flex; flex-direction: column; gap: 20px; position: relative;
+}
+.planHighlight {
+  border-color: var(--secured);
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-elevated) 100%);
+  box-shadow: 0 8px 32px var(--secured-dim);
+}
+.planBadge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--secured); color: var(--bg);
+  padding: 3px 12px; border-radius: 999px; font-size: 11.5px; font-weight: 600;
+  display: flex; align-items: center; gap: 4px;
+  white-space: nowrap;
+}
+.planName { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-primary); }
+.planPrice { font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; color: var(--text-primary); }
+.planPeriod { font-size: 14px; font-weight: 400; color: var(--text-muted); }
+.planFeatures { list-style: none; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.planFeatures li { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--text-secondary); }
+
+/* Footer */
+.footer { border-top: 1px solid var(--border); margin-top: auto; }
+.footerInner { max-width: 1100px; margin: 0 auto; padding: 28px 24px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.footerLinks { display: flex; gap: 20px; flex: 1; flex-wrap: wrap; }
+.footerLinks a { font-size: 13px; color: var(--text-muted); transition: color 0.2s; }
+.footerLinks a:hover { color: var(--text-primary); }
+.footerCopy { font-size: 12px; color: var(--text-muted); }
+
+@media (max-width: 640px) {
+  .navLinks { display: none; }
+  .heroTitle { font-size: 36px; }
+  .heroCtas { flex-direction: column; align-items: center; }
+}

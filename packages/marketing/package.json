@@ -1,0 +1,24 @@
+{
+  "name": "voile-marketing",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3001",
+    "build": "next build",
+    "start": "next start",
+    "deploy": "wrangler pages deploy .next/standalone"
+  },
+  "dependencies": {
+    "next": "^14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@voile/core": "workspace:*",
+    "lucide-react": "^0.439.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.5.0"
+  }
+}

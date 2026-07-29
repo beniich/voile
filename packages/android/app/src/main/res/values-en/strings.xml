@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Voile VPN</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_servers">Servers</string>
+    <string name="nav_settings">Settings</string>
+    <string name="status_disconnected">Disconnected</string>
+    <string name="status_connecting">Connecting…</string>
+    <string name="status_secured">Secured connection</string>
+    <string name="status_error">Error</string>
+    <string name="btn_connect">Connect</string>
+    <string name="btn_disconnect">Disconnect</string>
+    <string name="tunnel_notification_title">Voile VPN</string>
+    <string name="tunnel_notification_active">Encrypted tunnel active</string>
+    <string name="tunnel_notification_connecting">Connecting…</string>
+    <string name="tunnel_disconnect">Disconnect</string>
+    <string name="settings_protocol">Protocol</string>
+    <string name="settings_kill_switch">Kill Switch</string>
+    <string name="settings_kill_switch_sub">Cuts internet if the tunnel disconnects</string>
+    <string name="settings_auto_connect">Auto-connect</string>
+    <string name="settings_cybersec">CyberSec Shield</string>
+    <string name="premium_title">Upgrade to Voile+</string>
+    <string name="premium_cta">Upgrade to Voile+</string>
+</resources>

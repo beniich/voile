@@ -1,0 +1,6 @@
+{
+  "name": "Voile",
+  "description": "A modern VPN app interface with server selection and connection telemetry.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

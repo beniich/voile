@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Voile VPN</string>
+    <string name="nav_home">Inicio</string>
+    <string name="nav_servers">Servidores</string>
+    <string name="nav_settings">Ajustes</string>
+    <string name="status_disconnected">Desconectado</string>
+    <string name="status_connecting">Conectando…</string>
+    <string name="status_secured">Conexión segura</string>
+    <string name="status_error">Error</string>
+    <string name="btn_connect">Conectar</string>
+    <string name="btn_disconnect">Desconectar</string>
+    <string name="tunnel_notification_title">Voile VPN</string>
+    <string name="tunnel_notification_active">Túnel cifrado activo</string>
+    <string name="tunnel_notification_connecting">Conectando…</string>
+    <string name="tunnel_disconnect">Desconectar</string>
+    <string name="settings_protocol">Protocolo</string>
+    <string name="settings_kill_switch">Kill Switch</string>
+    <string name="settings_kill_switch_sub">Corta internet si el túnel se desconecta</string>
+    <string name="settings_auto_connect">Conexión automática</string>
+    <string name="settings_cybersec">CyberSec Shield</string>
+    <string name="premium_title">Pasa a Voile+</string>
+    <string name="premium_cta">Pasar a Voile+</string>
+</resources>

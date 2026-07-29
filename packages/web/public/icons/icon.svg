@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A0F1C"/>
+      <stop offset="100%" stop-color="#121A2B"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#26D9C4"/>
+      <stop offset="100%" stop-color="#1A9B8A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background rounded square -->
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+
+  <!-- Shield -->
+  <path
+    d="M256 80 L112 144 V256 C112 352 168 432 256 464 C344 432 400 352 400 256 V144 Z"
+    fill="url(#shield)"
+    opacity="0.95"
+  />
+
+  <!-- Inner shield outline -->
+  <path
+    d="M256 110 L138 165 V256 C138 339 186 408 256 436 C326 408 374 339 374 256 V165 Z"
+    fill="none"
+    stroke="#0A0F1C"
+    stroke-width="6"
+    opacity="0.3"
+  />
+
+  <!-- Check mark -->
+  <path
+    d="M192 256 L232 296 L320 208"
+    fill="none"
+    stroke="#0A0F1C"
+    stroke-width="24"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

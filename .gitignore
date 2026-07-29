@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Builds
+dist/
+.next/
+out/
+build/
+*.apk
+*.aab
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+
+# Android
+*.iml
+.gradle
+.kotlin
+local.properties
+.idea/
+.externalNativeBuild
+.cxx
+debug.keystore
+packages/android/keystore.properties
+packages/android/app/*.keystore
+
+# System & OS
+.DS_Store
+Thumbs.db
