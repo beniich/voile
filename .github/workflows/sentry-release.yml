@@ -9,6 +9,8 @@ jobs:
   release-web:
     name: Release Web to Sentry
     runs-on: ubuntu-latest
+    env:
+      SENTRY_RELEASE: ${{ github.ref_name }}
     steps:
       - uses: actions/checkout@v4
 
@@ -38,7 +40,6 @@ jobs:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
           SENTRY_PROJECT: voile-web
-          SENTRY_RELEASE: ${{ github.ref_name }}
         run: |
           cd packages/web
           npx @sentry/cli releases new "$SENTRY_RELEASE"
@@ -70,7 +71,7 @@ jobs:
 
       - name: Build Android release
         working-directory: packages/android
-        run: ./gradlew assembleRelease
+        run: gradle assembleRelease
         env:
           SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
