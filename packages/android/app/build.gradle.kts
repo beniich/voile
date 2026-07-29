@@ -116,8 +116,8 @@ android {
 }
 
 dependencies {
-    implementation("io.sentry:sentry-android:7.16.0")
-    implementation("io.sentry:sentry-compose-android:7.16.0")
+    implementation("io.sentry:sentry-android:8.50.1")
+    implementation("io.sentry:sentry-compose-android:8.50.1")
     
     // WireGuard
     implementation("com.wireguard.android:tunnel:1.0.20230725")
