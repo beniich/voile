@@ -20,7 +20,7 @@
     "@voile/core": "workspace:*",
     "i18next": "^26.3.6",
     "i18next-browser-languagedetector": "^8.2.1",
-    "lucide-react": "^0.439.0",
+    "lucide-react": "^0.577.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-i18next": "^17.0.11"
