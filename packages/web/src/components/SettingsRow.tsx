@@ -2,7 +2,7 @@ import React from "react";
 import { TOKENS } from "@voile/core/tokens";
 
 interface SettingsRowProps {
-  icon: React.ComponentType<{ size?: number; color?: string; strokeWidth?: number }>;
+  icon: React.ComponentType<any>;
   title: string;
   subtitle?: string;
   htmlFor: string;

@@ -1,9 +1,12 @@
 import * as Sentry from "@sentry/react";
 import { browserTracingIntegration } from "@sentry/react";
 
-const SENTRY_DSN = import.meta.env.VITE_SENTRY_DSN;
-const APP_VERSION = import.meta.env.VITE_APP_VERSION || "dev";
-const ENV = import.meta.env.MODE; // 'development' | 'production' | 'preview'
+// @ts-ignore
+const SENTRY_DSN = import.meta.env?.VITE_SENTRY_DSN;
+// @ts-ignore
+const APP_VERSION = import.meta.env?.VITE_APP_VERSION || "dev";
+// @ts-ignore
+const ENV = import.meta.env?.MODE; // 'development' | 'production' | 'preview'
 
 // Pas de DSN = pas d'instrumentation (dev local, tests)
 if (!SENTRY_DSN) {
@@ -79,9 +82,6 @@ if (!SENTRY_DSN) {
         maskAllText: true,        // Masque tout le texte
         blockAllMedia: true,      // Bloque screenshots
         maskAllInputs: true,      // Masque inputs
-        // Ne capture que les erreurs, pas la session normale
-        sampleRate: 0,
-        errorSampleRate: 1.0,
       }),
       browserTracingIntegration({
         // Trace les navigations SPA

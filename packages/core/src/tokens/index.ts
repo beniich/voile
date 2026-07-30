@@ -27,6 +27,8 @@ export const TOKENS = {
   securedDim:    "rgba(16, 185, 129, 0.125)",
   connectingDim: "rgba(245, 166, 35, 0.125)",
   errorDim:      "rgba(239, 68, 68, 0.125)",
+  // Focus outline
+  focus:        "#3B82F6",
 } as const;
 
 export type TokenKey = keyof typeof TOKENS;
