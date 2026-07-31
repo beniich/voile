@@ -12,6 +12,7 @@ import { BottomNav } from "./components/BottomNav.js";
 import { Toast } from "./components/Toast.js";
 import { SplitTunnelingModal } from "./components/SplitTunnelingModal.js";
 import { PremiumModal } from "./components/PremiumModal.js";
+import { SpiderLogo } from "./components/SpiderLogo.js";
 import { DEFAULT_SETTINGS, type VoileSettings, type TunnelState } from "./types.js";
 
 export default function App() {
@@ -115,8 +116,9 @@ export default function App() {
               width: 26, height: 26, borderRadius: 8,
               background: TOKENS.securedDim,
               display: "flex", alignItems: "center", justifyContent: "center",
+              color: TOKENS.secured
             }}>
-              <Shield size={14} color={TOKENS.secured} strokeWidth={2.2} />
+              <SpiderLogo size={18} />
             </div>
             <span style={{
               fontFamily: "'Space Grotesk', sans-serif",
