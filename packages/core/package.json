@@ -18,7 +18,7 @@
     "gen:types": "echo 'Set SUPABASE_PROJECT_ID and run: supabase gen types typescript --project-id $SUPABASE_PROJECT_ID > src/supabase/types.ts'"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.45.0"
+    "@supabase/supabase-js": "^2.112.2"
   },
   "devDependencies": {
     "typescript": "^5.4.0",
