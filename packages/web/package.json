@@ -14,7 +14,7 @@
   "dependencies": {
     "@sentry/react": "^8.30.0",
     "@sentry/vite-plugin": "^2.22.0",
-    "@stripe/react-stripe-js": "^6.8.0",
+    "@stripe/react-stripe-js": "^6.9.0",
     "@stripe/stripe-js": "^9.12.1",
     "@supabase/supabase-js": "^2.45.0",
     "@voile/core": "workspace:*",
