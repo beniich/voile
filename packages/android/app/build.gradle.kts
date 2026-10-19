@@ -139,7 +139,7 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.9.0")
     
     // WorkManager
-    implementation("androidx.work:work-runtime-ktx:2.9.0")
+    implementation("androidx.work:work-runtime-ktx:2.12.0")
 
     // Ktor
     implementation("io.ktor:ktor-client-android:2.3.11")
